@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="331.0" style="-fx-background-color: transparent, transparent, transparent, transparent;&#10;-fx-text-fill: white;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="edu.srjc.matt.smith.FinalProject.fx8.AboutWindowGUIController">
+  <children>
+    <TextArea editable="false" layoutX="0.0" layoutY="0.0" prefHeight="145.0" prefWidth="331.0" style="-fx-background-color: #08090A;&#10;-fx-text-fill: #6BAFB9;" text="Made by Matt Smith for Sean Kirkpatrick's Spring 2014 Java Programming Course at Santa Rosa Junior College.&#10;&#10;Interface horribly ripped off from Winamp.&#10;&#10;&#10;&#10;Now Playing: Digital Insanity - Dreaming in Digital" wrapText="true">
+      <stylesheets>
+        <URL value="@theme.css" />
+      </stylesheets>
+    </TextArea>
+  </children>
+  <stylesheets>
+    <URL value="@theme.css" />
+  </stylesheets>
+</AnchorPane>

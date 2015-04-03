@@ -1,0 +1,88 @@
+/* http://stackoverflow.com/questions/12746459/how-to-change-the-colors-of-the-tableviews-rows */
+
+.table-view {
+    -fx-base: #08090A;
+    -fx-control-inner-background: #08090A;
+    -fx-background-color: #08090A;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+    -fx-text-fill: #6BAFB9;
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-weight: lighter;
+    -fx-font-size: 16pt;
+    -fx-opacity: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #494C4D;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #0D0E0F;
+}
+
+.table-row-cell {
+    -fx-text-fill: #6BAFB9;
+}
+
+.table-cell {
+    -fx-text-fill: #6BAFB9;
+}
+
+.table-view .column-header, .table-view .filler {
+    -fx-size: 25;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: 
+        transparent
+        transparent
+        derive(-fx-base, 80%) 
+        transparent;
+    -fx-border-insets: 0 10 1 0;
+}
+
+.table-view .column-header .label {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Segoe UI Light";
+    -fx-text-fill: white;
+    -fx-alignment: center-left;
+    -fx-opacity: 1;
+}
+
+/* Selected row */
+.table-view:focused .table-row-cell:filled:focused:selected {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: white;
+}
+
+/* Selected row when table not focused */
+.table-row-cell:filled:focused:selected {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: white;
+}
+
+/* Row hovered */
+.table-view:row-selection .table-row-cell:filled:hover {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-text-fill: #6BAFB9;
+}
+
+/* Selected row hovered */
+.table-view:focused .table-row-cell:filled:focused:selected:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: white;
+}
+
+/* Selected row hovered when table not focused */
+.table-view:row-selection .table-row-cell:filled:focused:hover {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 0 0 1 0, 1 1 2 1, 2 2 3 2, 3 3 4 3;
+    -fx-text-fill: white;
+}

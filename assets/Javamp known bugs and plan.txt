@@ -1,0 +1,74 @@
+Javamp
+
+===Known Issues===
+== UI ==
+- =FIXED= 	Doubleclick in tracklist should seek playlist scrollbar to selected track
+- =FIXED=	Drag and drop from library to playlist does not add at proper playlist index
+- =Good Enough=	ListView style incomplete
+- =Good Enough=	TableArea style incomplete
+- =Good Enough=	Media controls style incomplete
+- =Good Enough=	Search Bar style incomplete
+- =FIXED=	Unable to resize columns in tracklist
+- =LOW=		Tracklist track # column sorts 1,10,11,...,2 rather than 1,2,...,10,11
+- =Good Enough=	Directory Scan style incomplete
+- =LOW=		Duration and Current Title/Artist/Album displays not scrollable
+- =FIXED=         Directory Scan and About windows not modal.
+
+== Data Structures ==
+- =FIXED=	Selecting Artist/Title column in playlist view does not update Playlist data stucture
+                - Disabled artist/title clicking for now.
+- =HIGH=	jaudiotagger sometimes silently fails to read id3 tags/artwork
+                - Still unsolved. 'Solution' is an additional fallback tagreader.
+- =MEDIUM=	Sporatic error missing database on startup
+                - Can't reproduce.
+- =LOW=         AudioDB queryDB needs extra boolean parameter for LIKE/= toggle
+                - Needed for proper search
+- =LOW=		Type safety warnings from tableview cells
+- =FIXED=	AudioFile has unused data fields
+
+== Media Library ==
+- =FIXED= 	(No Genre)/(No Artist)/(No Album) nonfunctional
+- =FIXED=	First time doubleclicking track to load into playlist fails to update playlist or display but still plays.
+                - JavaFX Tableview bug relating to scrollTo
+- =MEDIUM=	Directory Scan Task.cancel() results in stack dump
+                - Might be fixed
+- =MEDIUM=	Genre/Artist/Album list doubleclick rarely fails to update playlistview
+                - Probably a concurrency issue. Happens mostly on (All Genres)
+- =LOW=		searchArtist/AlbumList needs to ignore case sensitivity
+
+== Playback ==
+- =FIXED=	Last track continues to play when repeat is off
+- =HIGH=        Rapidly changing tracks will cause MediaPlayer to throw an exception since it is not ready.
+                - Major bug. Need to find a way to call attachMediaControls() in the runnable handler while also calling internal methods
+                    for the MediaPlayerWrapper class.
+                - Workaround: Disabling buttons for short period of time/extra guards in MediaPlayerWrapper.
+- =LOW=		Duration sometimes fails to calculate properly
+- =FIXED=	Status indicator does not return to stop at end of playlist playback when repeat is off
+- =LOW=         Excessive file handles/stale file handles prevent sleep when stopped.
+                - MediaPlayer won't release file handles. Prevents tag editor from modifying file that was recently played.
+
+== Other ==
+- =LOW=         JAudioTagger is incredibly noisy about errors. Writing them to stderr even when they are caught.
+
+===Features Todo===
+- =In Progress= Implement Search
+                - Needs queryDB modification
+- =DONE=	Implement repeat/shuffle
+- =DONE= 	Implement Drag and drop within playlist
+- =DONE= 	Implement rightclick->remove controls on playlist
+- =DONE= 	Implement rightclick->remove controls on media library
+- =DONE= 	Implement keyboard hotkeys
+                - Can't implement multimedia keys. Show up as KeyCode UNDEFINED.
+- =DONE= 	Implement m3u read/writing
+- =DONE= 	Implement m4a/wav support
+- =LOW=         Drag and drop files
+- =DONE= 	Implement tag editor
+
+==Long Term==
+- =LOW= 	Convert genre/artist/album views to tableview
+- =LOW= 	Add total track count to genre/artist/album views
+- =LOW= 	Configuration File
+                - Last played, volume, last selected, others.
+- =LOW= 	Implement directory watching/automatic library updating
+- =LOW= 	Add translations for extended mp3 genre tags
+- =LOW= 	Implement spectroscope

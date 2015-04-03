@@ -1,0 +1,79 @@
+.list-cell {
+    -fx-skin: "com.sun.javafx.scene.control.skin.ListCellSkin";
+    -fx-background-color: #08090A;
+    -fx-padding: 0.25em; /* 3 */
+    -fx-text-fill: #6BAFB9;
+    -fx-font-family: "Segoe UI Light";
+    -fx-font-size: 14pt;
+    -fx-opacity: 1;
+}
+
+.list-cell:odd {
+    -fx-background-color: #0D0E0F;
+}
+
+.list-view:focused .list-cell:focused {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.list-view:focused .list-cell:focused:odd {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+}
+
+/* When the list-cell is selected and focused */
+.list-view:focused .list-cell:filled:focused:selected {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: white;
+}
+
+.list-view:focused .list-cell:filled:selected, .list-view:focused .list-cell:filled:selected:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: #2A2E39;
+    -fx-text-fill: white;
+}
+
+.list-view:focused .list-cell:filled:focused:selected:hover {
+    -fx-background: -fx-accent;
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: white;
+}
+
+/* When the ListView is _not_ focused, we show alternate selection colors */
+.list-cell:filled:selected:focused, .list-cell:filled:selected, .list-view:horizontal .list-cell:filled:selected {
+    -fx-background-color: #2A2E39;
+    -fx-text-fill: #6BAFB9;
+}
+
+.list-cell:filled:selected:focused:disabled, .list-cell:filled:selected:disabled {
+    -fx-opacity: -fx-disabled-opacity;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #2A2E39;
+    -fx-text-fill: #6BAFB9;
+}
+
+.list-view:focused .list-cell:filled:focused:hover {
+    -fx-background-color: #2A2E39;
+    -fx-background-insets: 0, 1, 2;
+    -fx-text-fill: white;
+}
+
+.list-view:horizontal .list-cell:filled:selected, .list-view:horizontal .list-cell:filled:selected:hover {
+    -fx-background-color: linear-gradient(to right, derive(-fx-accent,-7%), derive(-fx-accent,-25%));
+}
+
+.list-view .scroll-bar:vertical, .list-view .scroll-bar:horizontal {
+    -fx-base: #08090A;
+    -fx-control-inner-background: #08090A;
+    -fx-background-color: #08090A;
+    -fx-size: 35;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
+    -fx-background-color: transparent, derive(#1d1d1d,20%);
+}

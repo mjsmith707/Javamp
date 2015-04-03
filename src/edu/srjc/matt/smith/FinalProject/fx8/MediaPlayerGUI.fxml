@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" minHeight="691.0" minWidth="925.0" prefHeight="691.0" prefWidth="925.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="edu.srjc.matt.smith.FinalProject.fx8.MediaPlayerGUIController">
+  <children>
+    <MenuBar blendMode="SRC_ATOP" layoutX="0.0" layoutY="0.0" prefWidth="934.0">
+      <menus>
+        <Menu mnemonicParsing="true" text="_File">
+          <items>
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuPlayFile" text="Play _File">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuPlayDirectory" text="Play _Directory">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="D" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuAddFile" text="_Add File to Library">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuAddDirectory" text="Add Directory to _Library">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="D" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuOpenPlaylist" text="_Open Playlist">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuSavePlaylist" text="_Save Playlist">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="true" onAction="#handleFileMenuExit" text="E_xit">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="X" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="true" text="_Play">
+          <items>
+            <MenuItem mnemonicParsing="true" onAction="#handleBtnPrevious" text="Pre_vious">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="V" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleBtnPlay" text="_Play">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleBtnPause" text="P_ause">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="A" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleBtnStop" text="_Stop">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <MenuItem mnemonicParsing="true" onAction="#handleBtnNext" text="_Next">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <RadioMenuItem mnemonicParsing="true" onAction="#handlePlayMenuShuffle" selected="false" text="S_huffle" fx:id="menuShuffle" />
+            <RadioMenuItem mnemonicParsing="true" onAction="#handlePlayMenuRepeat" text="_Repeat" fx:id="menuRepeat" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="true" text="_Options">
+          <items>
+            <MenuItem mnemonicParsing="true" onAction="#handleOptionsMenuDeleteLibrary" text="_Delete Library">
+              <accelerator>
+                <KeyCodeCombination alt="DOWN" code="D" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="true" text="_Help">
+          <items>
+            <MenuItem mnemonicParsing="true" onAction="#handleHelpMenuAbout" text="_About">
+              <accelerator>
+                <KeyCodeCombination alt="UP" code="F1" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+              </accelerator>
+            </MenuItem>
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <TextField fx:id="searchBox" focusTraversable="false" layoutX="10.0" layoutY="170.0" onKeyTyped="#handleSearchAction" prefHeight="24.0" prefWidth="645.0" promptText="Search:" style="-fx-background-color: transparent, transparent, transparent, transparent;" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1a1b1c" height="125.0" layoutX="10.0" layoutY="34.0" strokeLineJoin="MITER" strokeType="INSIDE" width="250.0">
+      <stroke>
+        <Color blue="0.251" green="0.251" red="0.251" fx:id="x2" />
+      </stroke>
+    </Rectangle>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="125.0" layoutX="270.0" layoutY="34.0" stroke="$x2" strokeType="INSIDE" width="125.0">
+      <fill>
+        <Color blue="0.110" green="0.106" red="0.102" fx:id="x8" />
+      </fill>
+    </Rectangle>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="$x8" height="125.0" layoutX="405.0" layoutY="34.0" stroke="$x2" strokeType="INSIDE" width="250.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="654.0" layoutX="665.0" layoutY="34.0" stroke="$x2" strokeType="INSIDE" width="260.0">
+      <fill>
+        <Color blue="0.376" green="0.376" red="0.376" fx:id="x1" />
+      </fill>
+    </Rectangle>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="494.0" layoutX="10.0" layoutY="194.0" stroke="$x3" strokeType="INSIDE" width="645.0">
+      <fill>
+        <Color blue="0.302" green="0.298" red="0.286" fx:id="x3" />
+      </fill>
+    </Rectangle>
+    <Line endX="809.0" endY="0.0" fill="#383f43" layoutX="120.0" layoutY="30.0" startX="-115.0" startY="-1.0" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0">
+      <stroke>
+        <Color blue="0.263" green="0.247" red="0.220" fx:id="x9" />
+      </stroke>
+    </Line>
+    <Line endX="900.0" endY="-9.0" fill="$x9" layoutX="-635.0" layoutY="38.0" startX="900.0" startY="118.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="900.0" endY="-9.0" fill="$x9" layoutX="-500.0" layoutY="38.0" startX="900.0" startY="118.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="900.0" endY="-9.0" fill="$x9" layoutX="30.0" layoutY="39.0" startX="900.0" startY="646.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="540.0" endY="-1.0" fill="$x9" layoutX="120.0" layoutY="165.0" startX="-115.0" startY="-1.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="900.0" endY="-9.0" fill="$x9" layoutX="-895.0" layoutY="39.0" startX="900.0" startY="653.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="900.0" endY="-9.0" fill="$x9" layoutX="-240.0" layoutY="38.0" startX="900.0" startY="653.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="810.0" endY="-2.0" fill="$x9" layoutX="120.0" layoutY="694.0" startX="-115.0" startY="-1.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="540.0" endY="-1.0" fill="$x9" layoutX="120.0" layoutY="200.0" startX="-115.0" startY="-1.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="900.0" endY="-9.0" fill="$x3" layoutX="-675.0" layoutY="208.0" startX="900.0" startY="250.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="4.5" />
+    <Line endX="900.0" endY="-9.0" fill="$x3" layoutX="-460.0" layoutY="208.0" startX="900.0" startY="250.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="4.5" />
+    <Line endX="540.0" endY="-1.0" fill="$x9" layoutX="120.0" layoutY="460.0" startX="-115.0" startY="-1.0" stroke="$x9" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <ListView fx:id="genreListView" layoutX="10.0" layoutY="218.0" onDragDetected="#handleGenreListDragDetected" onMouseClicked="#handleGenreListLeftClick" prefHeight="236.0" prefWidth="215.0" style="-fx-background-color: transparent, transparent, transparent, transparent;">
+      <stylesheets>
+        <URL value="@listviews.css" />
+      </stylesheets>
+    </ListView>
+    <ListView fx:id="artistListView" layoutX="225.0" layoutY="218.0" onDragDetected="#handleArtistListDragDetected" onMouseClicked="#handleArtistListLeftClick" prefHeight="236.0" prefWidth="215.0" style="-fx-background-color: transparent, transparent, transparent, transparent;">
+      <stylesheets>
+        <URL value="@listviews.css" />
+      </stylesheets>
+    </ListView>
+    <ListView fx:id="albumListView" layoutX="440.0" layoutY="218.0" onDragDetected="#handleAlbumListDragDetected" onMouseClicked="#handleAlbumListLeftClick" prefHeight="236.0" prefWidth="215.0" style="-fx-background-color: transparent, transparent, transparent, transparent;">
+      <stylesheets>
+        <URL value="@listviews.css" />
+      </stylesheets>
+    </ListView>
+    <Text fill="WHITE" layoutX="30.0" layoutY="215.0" scaleX="2.0389977060172932" scaleY="1.2505751885130487" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre">
+      <font>
+        <Font name="Segoe UI Semibold" size="11.0" fx:id="x4" />
+      </font>
+    </Text>
+    <Text fill="WHITE" font="$x4" layoutX="246.0" layoutY="215.0" scaleX="2.5213201001416414" scaleY="1.2505751885130487" strokeType="OUTSIDE" strokeWidth="0.0" text="Artist" />
+    <Text fill="WHITE" font="$x4" layoutX="458.0" layoutY="215.0" scaleX="2.0389977060172932" scaleY="1.2505751885130487" strokeType="OUTSIDE" strokeWidth="0.0" text="Album" />
+    <TableView fx:id="trackListTableView" layoutX="10.0" layoutY="464.0" onDragDetected="#handleTrackListDragDetected" onDragDropped="#handleTrackListDragDropped" onMouseClicked="#handleTrackListLeftClick" prefHeight="224.0" prefWidth="645.0000999999975" style="">
+      <columns>
+        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="122.0" text="Artist" fx:id="trackListArtistColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="157.0" text="Album" fx:id="trackListAlbumColumn" />
+        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="45.0" text="Track #" fx:id="trackListTrackColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="273.0" text="Title" fx:id="trackListTitleColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Length" fx:id="trackListLengthColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Year" fx:id="trackListYearColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Genre" fx:id="trackListGenreColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="75.0" text="Disc #" fx:id="trackListDiscColumn" />
+      </columns>
+      <contextMenu>
+        <ContextMenu>
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#handleTrackListRightClickEditTags" text="Edit Tags" />
+            <MenuItem mnemonicParsing="false" onAction="#handleTrackListRightClickRemove" text="Remove" />
+          </items>
+        </ContextMenu>
+      </contextMenu>
+      <stylesheets>
+        <URL value="@tableviews.css" />
+      </stylesheets>
+    </TableView>
+    <TableView id="trackListTableView" fx:id="playListTableView" layoutX="665.0" layoutY="34.0" onDragDropped="#handlePlayListDragDropped" onDragOver="#handlePlayListDragOver" onMouseClicked="#handlePlayListClick" prefHeight="654.0" prefWidth="260.0" style="">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="98.0" text="Artist" fx:id="playListArtistColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="116.0" text="Title" fx:id="playListTitleColumn" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="225.0" text="Length" fx:id="playListLengthColumn" />
+      </columns>
+      <contextMenu>
+        <ContextMenu>
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#handlePlaylistRightClickRemove" text="Remove" />
+            <MenuItem mnemonicParsing="false" onAction="#handlePlaylistRightClickClear" text="Clear Playlist" />
+          </items>
+        </ContextMenu>
+      </contextMenu>
+      <stylesheets>
+        <URL value="@tableviews.css" />
+      </stylesheets>
+    </TableView>
+    <Pane fx:id="leftMediaPane" layoutX="14.0" layoutY="34.0" prefHeight="99.0" prefWidth="246.0">
+      <children>
+        <ToolBar layoutX="8.0" layoutY="82.0" prefHeight="43.0" prefWidth="236.0001220703125" style="-fx-background-color: transparent, transparent, transparent, transparent;&#10;">
+          <items>
+            <Button fx:id="btnPreviousTrack" alignment="CENTER" contentDisplay="TOP" minHeight="24.0" minWidth="24.0" mnemonicParsing="false" onAction="#handleBtnPrevious" prefHeight="27.0" prefWidth="37.999900000002526" text="⏪">
+              <font>
+                <Font size="12.0" fx:id="x10" />
+              </font>
+            </Button>
+            <Button id="btnPreviousTrack" fx:id="btnPlay" contentDisplay="TEXT_ONLY" ellipsisString="" font="$x10" minHeight="24.0" minWidth="31.719970703125" mnemonicParsing="false" onAction="#handleBtnPlay" prefHeight="27.0" prefWidth="37.2933349609375" text="▶" wrapText="false" />
+            <Button id="btnPreviousTrack" fx:id="btnPause" contentDisplay="TEXT_ONLY" font="$x10" minHeight="24.0" minWidth="31.719970703125" mnemonicParsing="false" onAction="#handleBtnPause" prefHeight="27.0" prefWidth="37.2933349609375" text="||" />
+            <Button id="btnPreviousTrack" fx:id="btnStop" contentDisplay="TEXT_ONLY" font="$x10" minHeight="24.0" minWidth="31.719970703125" mnemonicParsing="false" onAction="#handleBtnStop" prefHeight="27.0" prefWidth="37.2933349609375" text="⬛" />
+            <Button id="btnPreviousTrack" fx:id="btnNextTrack" contentDisplay="TEXT_ONLY" font="$x10" minHeight="24.0" minWidth="31.719970703125" mnemonicParsing="false" onAction="#handleBtnNext" prefHeight="27.0" prefWidth="37.2933349609375" text="⏩" />
+          </items>
+        </ToolBar>
+        <BorderPane fx:id="mediaViewSliderPane" layoutX="0.0" layoutY="63.0" prefHeight="27.0" prefWidth="246.0" />
+        <BorderPane id="mediaViewSliderPane" fx:id="mediaViewDurationPane" layoutX="10.0" layoutY="7.0" prefHeight="41.745361328125" prefWidth="118.0" />
+        <BorderPane id="mediaViewSliderPane" fx:id="mediaViewVolumePane" layoutX="141.0" layoutY="50.0" prefHeight="27.0" prefWidth="105.0" />
+        <BorderPane id="mediaViewSliderPane" fx:id="mediaViewStatusPane" layoutX="134.0" layoutY="7.0" prefHeight="27.0" prefWidth="105.0" />
+        <BorderPane id="mediaViewSliderPane" fx:id="mediaViewMuteBtnPane" layoutX="126.0" layoutY="53.0" prefHeight="14.0" prefWidth="16.719970703125" />
+        <ToggleButton fx:id="btnShuffle" layoutX="0.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleBtnShuffle" text="Shuffle">
+          <textFill>
+            <Color blue="0.349" green="0.329" red="0.200" fx:id="x11" />
+          </textFill>
+        </ToggleButton>
+        <ToggleButton fx:id="btnRepeat" layoutX="64.0" layoutY="50.0" mnemonicParsing="false" onAction="#handleBtnRepeat" text="Repeat" textFill="$x11" />
+      </children>
+    </Pane>
+    <Text fill="#6bafb9" layoutX="411.0" layoutY="54.0" scaleX="1.0399313679613165" scaleY="0.9755032427802252" strokeType="OUTSIDE" strokeWidth="0.0" text="Title:">
+      <font>
+        <Font name="Microsoft Sans Serif" size="14.0" fx:id="x6" />
+      </font>
+    </Text>
+    <Text font="$x6" layoutX="411.0" layoutY="80.0" scaleX="1.0399313679613165" scaleY="0.9755032427802252" strokeType="OUTSIDE" strokeWidth="0.0" text="Artist:">
+      <fill>
+        <Color blue="0.725" green="0.686" red="0.420" fx:id="x5" />
+      </fill>
+    </Text>
+    <Text fill="$x5" font="$x6" layoutX="410.0" layoutY="106.0" scaleX="1.0399313679613165" scaleY="0.9755032427802252" strokeType="OUTSIDE" strokeWidth="0.0" text="Album:" />
+    <TextField fx:id="currentTrackTitleTextField" alignment="BASELINE_LEFT" editable="false" focusTraversable="false" layoutX="455.0" layoutY="38.0" prefHeight="22.0" prefWidth="193.0" style="-fx-background-color: transparent, transparent, transparent, transparent;&#10;-fx-text-fill: white;&#10;-fx-font-size: 16;" text="" />
+    <TextField fx:id="currentTrackArtistTextField" alignment="BASELINE_LEFT" editable="false" focusTraversable="false" layoutX="456.0" layoutY="64.0" prefHeight="22.000099999997474" prefWidth="193.0" style="-fx-background-color: transparent, transparent, transparent, transparent;&#10;-fx-text-fill: white;&#10;-fx-font-size: 16;" text="" />
+    <TextField fx:id="currentTrackAlbumTextField" alignment="BASELINE_LEFT" editable="false" focusTraversable="false" layoutX="456.0" layoutY="90.0" prefHeight="22.0" prefWidth="193.0" style="-fx-background-color: transparent, transparent, transparent, transparent;&#10;-fx-text-fill: white;&#10;-fx-font-size: 16;" text="" />
+    <ImageView fx:id="currentTrackAlbumArtView" fitHeight="117.0" fitWidth="118.0" layoutX="274.0" layoutY="38.0" pickOnBounds="true" preserveRatio="false" />
+  </children>
+  <stylesheets>
+    <URL value="@theme.css" />
+  </stylesheets>
+</AnchorPane>

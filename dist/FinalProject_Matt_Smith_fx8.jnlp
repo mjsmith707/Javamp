@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="FinalProject_Matt_Smith_fx8.jnlp">
+  <information>
+    <title>FinalProject_Matt_Smith_fx8</title>
+    <vendor>msmith</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+  </resources>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="FinalProject_Matt_Smith_fx8.jar" size="12109573" download="eager" />
+    <jar href="lib/MessageBox.jar" size="70347" download="eager" />
+    <jar href="lib/jaudiotagger-2.2.0-20130321.142353-1-javadoc.jar" size="2454722" download="eager" />
+    <jar href="lib/jaudiotagger-2.2.0-20130321.142353-1.jar" size="977669" download="eager" />
+    <jar href="lib/sqlite-jdbc-3.7.2.jar" size="3218818" download="eager" />
+  </resources>
+<security>
+  <all-permissions/>
+</security>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="FinalProject_Matt_Smith_fx8" >
+    <param name="requiredFXVersion" value="2.2+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="edu.srjc.matt.smith.FinalProject.fx8.MediaPlayerMain"  name="FinalProject_Matt_Smith_fx8" />
+  <update check="always"/>
+</jnlp>

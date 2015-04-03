@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="205.0" prefWidth="417.0" style="-fx-background-color: #1a1b1c" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="edu.srjc.matt.smith.FinalProject.fx8.EditTagsWindowGUIController">
+  <children>
+    <TextField fx:id="pathTextField" editable="false" layoutX="14.0" layoutY="14.0" prefWidth="389.0" />
+    <Label layoutX="25.0" layoutY="60.0" text="Year:" textFill="WHITE" />
+    <TextField fx:id="yearTextField" layoutX="50.0" layoutY="56.0" prefWidth="43.0" />
+    <Label layoutX="101.0" layoutY="60.0" prefWidth="43.0" text="Track #:" textFill="WHITE" />
+    <TextField fx:id="trackTextField" layoutX="144.0" layoutY="56.0" prefWidth="43.0" />
+    <Label layoutX="201.0" layoutY="60.0" prefWidth="36.0" text="Disc #:" textFill="WHITE" />
+    <TextField fx:id="discTextField" layoutX="237.0" layoutY="56.0" prefWidth="43.0" />
+    <Label layoutX="25.0" layoutY="83.0" text="Title:" textFill="WHITE" />
+    <TextField fx:id="titleTextField" layoutX="50.0" layoutY="80.0" prefWidth="230.0" />
+    <Label layoutX="20.0" layoutY="106.0" text="Artist:" textFill="WHITE" />
+    <TextField fx:id="artistTextField" layoutX="50.0" layoutY="102.0" prefWidth="230.0" />
+    <Label layoutX="14.0" layoutY="127.0" text="Album:" textFill="WHITE" />
+    <TextField fx:id="albumTextField" layoutX="50.0" layoutY="124.0" prefWidth="230.0" />
+    <Label layoutX="17.0" layoutY="149.0" text="Genre:" textFill="WHITE" />
+    <TextField fx:id="genreTextField" layoutX="50.0" layoutY="146.0" prefWidth="230.0" />
+    <Label layoutX="307.0" layoutY="60.0" text="Album Artwork:" textFill="WHITE" />
+    <ImageView fx:id="albumArtImageView" fitHeight="86.25" fitWidth="115.0" layoutX="287.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
+    <Button id="handleBtnEdit" fx:id="btnEditImage" layoutX="310.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleBtnEditImage" text="Edit Image" />
+    <Button fx:id="btnSave" layoutX="51.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleBtnSave" text="Save" />
+    <Button fx:id="btnCancel" layoutX="225.0" layoutY="174.0" mnemonicParsing="false" onAction="#handleBtnCancel" text="Cancel" />
+    <Line endX="900.0" endY="595.0" layoutX="-895.0" layoutY="-395.0" startX="900.0" startY="400.0" stroke="$x1" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0">
+      <fill>
+        <Color blue="0.263" green="0.247" red="0.220" fx:id="x1" />
+      </fill>
+    </Line>
+    <Line endX="510.0" endY="605.0" fill="$x1" layoutX="-499.0" layoutY="-600.0" startX="910.0" startY="605.0" stroke="$x1" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="900.0" endY="595.0" fill="$x1" layoutX="-488.0" layoutY="-395.0" startX="900.0" startY="400.0" stroke="$x1" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" />
+    <Line endX="510.0" endY="605.0" fill="$x1" layoutX="-499.0" layoutY="-405.0" startX="910.0" startY="605.0" stroke="$x1" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="CENTERED" strokeWidth="10.0" style="" />
+  </children>
+  <stylesheets>
+    <URL value="@theme.css" />
+  </stylesheets>
+</AnchorPane>
